@@ -1,4 +1,6 @@
 import React from 'react'
+import "./SidebarChannel.css"
+
 
 function SidebarChannel({ id,channel}) {
     return (

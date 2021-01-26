@@ -1,0 +1,22 @@
+
+
+
+.message{
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+
+
+.message__info{
+    margin-left: 20px;
+}
+
+
+.message__timestamp{
+    margin-left: 20px;
+    color: gray;
+    font-size: x-small;
+}

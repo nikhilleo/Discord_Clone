@@ -10,9 +10,14 @@ import { Avatar } from '@material-ui/core';
 import MicIcon from '@material-ui/icons/Mic';
 import HeadsetMicOutlinedIcon from '@material-ui/icons/HeadsetMicOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { selectUser } from "./features/userSlice"
+import { useSelector } from 'react-redux';
 
 
 function Sidebar() {
+
+  const user = useSelector(selectUser);
+
     return (
         <div className="sidebar">
             <div className="sidebar__top">
@@ -54,9 +59,9 @@ function Sidebar() {
 
 
             <div className="sidebar__profile">
-                <Avatar src="https://c4.wallpaperflare.com/wallpaper/653/7/663/soccer-lionel-messi-fc-barcelona-hd-wallpaper-preview.jpg" />
+                <Avatar src={user.photo} />
                 <div className="sidebar__profileInfo">
-                    <h3>@nikhilleo</h3>
+                    <h3>{user.name}</h3>
                     <p>#1008</p>
                 </div>
                 <div className="sidebar__profileIcons">

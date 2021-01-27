@@ -28,14 +28,7 @@ function Sidebar() {
             })
             console.log(chan);
             setChannels(chan)
-        //     setChannels(
-        //         snapshot.docs.map((doc)=>({
-        //             id:doc.id,
-        //             channel:doc.data().channel,
-        //         }))
-        // )
-        }
-        )
+        })
     }, [])
 
     const handleAddChannel = ()=>{

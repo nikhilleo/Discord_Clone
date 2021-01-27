@@ -30,7 +30,7 @@ function App() {
         dispatch(logout())
       }
     })
-  }, []);
+  }, [dispatch]);
   
   const user = useSelector(selectUser);
 

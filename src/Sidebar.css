@@ -52,3 +52,8 @@
 .sidebar__channelList{
     flex: 1;
 }
+
+
+.avatar__photo :hover{
+    cursor: pointer;
+}

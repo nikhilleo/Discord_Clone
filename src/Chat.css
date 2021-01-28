@@ -50,8 +50,8 @@
 }
 
 .chat__messages{
+    height: 100vh;
     flex: 1;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
-

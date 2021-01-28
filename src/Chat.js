@@ -14,12 +14,6 @@ import firebase from "firebase"
 
 function Chat() {
 
-    const scrBottom = ()=>{
-        console.log("SCROLL TOP")
-        const doc = document.getElementsByClassName("chat__messages");
-        doc[0].scrollTop = doc[0].scrollHeight;
-    }
-
     const [input,setInput] = useState("")
     const [messages, setMessages] = useState([])
     const user = useSelector(selectUser);
@@ -32,7 +26,9 @@ function Chat() {
             db.collection('channels').doc(channelId).collection("messages").orderBy("timestamp","asc").onSnapshot(snapshot=>(
                 setMessages(snapshot.docs.map(doc => doc.data()))
             ))
-            scrBottom();
+            console.log("Scrolling")
+            const objDiv = document.getElementById("scroll")
+            objDiv.scrollTop = objDiv.scrollHeight;
         }
     }, [channelId])
 
@@ -50,12 +46,11 @@ function Chat() {
     return (
         <div className="chat"> 
             <ChatHeader channelName={channelName} />
-
-            <div className="chat__messages">
-                {messages.map(({message,user,timestamp})=>(
-                    <Message message={message} timestamp={timestamp} user={user}/>
-                ))}
-            </div>
+                <div className="chat__messages" id="scroll">
+                    {messages.map(({message,user,timestamp})=>(
+                        <Message message={message} timestamp={timestamp} user={user}/>
+                    ))}
+                </div>
             <div className="chat__input">
                 <AddCircleIcon fontSize="large"/>
                 <form >

@@ -21,13 +21,10 @@ function Sidebar() {
     useEffect(() => {
         db.collection("channels").onSnapshot((snapshot)=>
         {
-            let chan = [...channels];
-            snapshot.docs.map((i)=>{
-                console.log(i.data());
-                chan.push(i.data());
-            })
-            console.log(chan);
-            setChannels(chan)
+            setChannels(snapshot.docs.map(doc=>({
+                id:doc.id,
+                channel:doc.data()
+            })))
         })
     }, [])
 
@@ -64,8 +61,10 @@ function Sidebar() {
                 </div>
                 <div className="sidebar__channelList">
                    {
-                        channels.map((channel)=>{
-                            return <SidebarChannel/>
+                        channels.map(({id,channel})=>{
+                            console.log(id);
+                            console.log(channel.channelName);
+                            return <SidebarChannel key={id} id={id} channelName={channel.channelName}/>
                         })
                    }
                 </div>

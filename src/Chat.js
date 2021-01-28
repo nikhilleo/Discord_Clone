@@ -6,11 +6,19 @@ import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import GifIcon from '@material-ui/icons/Gif';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import Message from './Message';
+import {selectChannelId,selectChannelName} from "./features/appSlice"
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
+
+
 
 function Chat() {
+    const user = useSelector(selectUser);
+    const channelName = useSelector(selectChannelName);
+    const channelId = useSelector(selectChannelId);
     return (
         <div className="chat"> 
-            <ChatHeader/>
+            <ChatHeader channelName={channelName} />
 
             <div className="chat__messages">
                 <Message/>
@@ -21,7 +29,7 @@ function Chat() {
             <div className="chat__input">
                 <AddCircleIcon fontSize="large"/>
                 <form >
-                    <input placeholder={`Message #YouTube`}/>
+                    <input placeholder={`Message #${channelName}`}/>
                     <button className="chat__inputButton" type="submit">Send Message</button>
                 </form>
                 <div className="chat__inputIcons">

@@ -5,6 +5,10 @@
     flex-direction: column;
     flex:0.75;
     background-color: #363a3f;
+    position: fixed;
+    height: 100vh;
+    left:25vw;
+    width: 75vw;
 }
 
 
@@ -47,4 +51,7 @@
 
 .chat__messages{
     flex: 1;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
+

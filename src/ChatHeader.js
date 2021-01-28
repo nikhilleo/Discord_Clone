@@ -6,8 +6,7 @@ import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import SearchIcon from '@material-ui/icons/Search';
 import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import HelpRoundedIcon from '@material-ui/icons/HelpRounded';
-import { useSelector } from 'react-redux';
-import {selectChannelId,selectChannelName} from "./features/appSlice"
+
 
 function ChatHeader({channelName}) {
 
